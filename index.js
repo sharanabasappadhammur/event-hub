@@ -27,8 +27,10 @@ async function main() {
 
       for (const event of events) {
         const rawString = event.body.toString();
+                const sequenceNumber = event.sequenceNumber;
 
         const result = {
+          sequenceNumber,
           ENTITLEMENT_CODE_6: "",
           DELAY_MINS_269: "",
           BID_PRICE_12: "",
@@ -76,7 +78,6 @@ async function main() {
           }
         }
 
-        const sequenceNumber = event.sequenceNumber;
         const offset = event.offset;
         const enqueuedTime = event.enqueuedTimeUtc;
         const partitionId = context.partitionId;
